@@ -1,0 +1,9 @@
+Restaurante
+-	Control de inventario
+		Alimentos
+		Insumos
+	Registro de comandas
+-		Catalogo de productos
+-	Catalogo de usuarios
+	Franquicias
+	

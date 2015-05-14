@@ -1,0 +1,95 @@
+CREATE DATABASE almacen;
+
+CREATE TABLE usuario (
+	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(120) NOT NULL,
+	tipo CHAR NOT NULL,
+	usuario VARCHAR(12) NOT NULL,
+	password VARCHAR(32) NOT NULL
+);
+
+# Consultas
+
+INSERT INTO usuario (id_usuario, nombre, tipo, usuario, password) VALUES (1, 'Eduardo', 'A', 'ecalderon', 'ñlkjsanfeiqaw48y91324)');
+INSERT INTO usuario (nombre, tipo, usuario, password) VALUES ('Eduardo', 'A', 'ecalderon', 'ñlkjsanfeiqaw48y91324)');
+INSERT INTO usuario (id_usuario, nombre, tipo, usuario, password) VALUES (NULL, 'Eduardo', 'A', 'ecalderon', 'ñlkjsanfeiqaw48y91324)');
+INSERT INTO usuario VALUES (NULL, 'Eduardo', 'A', 'ecalderon', 'ñlkjsanfeiqaw48y91324)');
+INSERT INTO usuario (nombre, usuario, tipo, password) VALUES ('Eduardo', 'ecalderon', 'A', 'ñlkjsanfeiqaw48y91324)');
+INSERT INTO usuario (nombre, usuario, tipo, password) VALUES
+('Eduardo', 'ecalderon', 'A', 'ñlkjsanfeiqaw48y91324)'),
+('Juan', 'jcortez', 'M', '123456789');
+
+UPDATE usuario SET password = 'hola' WHERE id_usuario = 1;
+UPDATE ingrediente SET cantidad = 3.5 WHERE id_producto = 1 AND id_insumo = 5;
+UPDATE usuario SET password = 'hola', tipo = 'C' WHERE id_usuario = 1;
+
+DELETE FROM usuario WHERE id_usuario = 1;
+
+SELECT * FROM usuario;
+SELECT id_usuario, nombre, tipo FROM usuario;
+SELECT id_usuario, nombre, tipo FROM usuario WHERE usuario = 'ecalderon' AND password = '123456';
+SELECT * FROM producto WHERE id_producto = 1;
+
+SELECT *
+FROM
+producto
+JOIN
+ingrediente
+ON producto.id_producto = ingrediente.id_producto
+WHERE
+producto.id_producto = 1;
+
+
+SELECT producto.nombre, ingrediente.cantidad, insumo.nombre, insumo.unidad
+FROM
+producto
+JOIN
+ingrediente
+ON producto.id_producto = ingrediente.id_producto
+JOIN
+insumo
+ON ingrediente.id_insumo = insumo.id_insumo
+WHERE
+producto.id_producto = 1;
+
+
+SELECT pr.nombre, ing.cantidad, ins.nombre, ins.unidad
+FROM
+producto pr
+JOIN
+ingrediente ing
+ON pr.id_producto = ing.id_producto
+JOIN
+insumo ins
+ON ing.id_insumo = ins.id_insumo
+WHERE
+pr.id_producto = 1;
+
+SELECT p.id_producto, p.nombre producto, p.precio, ing.cantidad, ins.unidad, ins.nombre ingrediente
+FROM producto p
+JOIN ingrediente ing ON p.id_producto = ing.id_producto
+JOIN insumo ins ON ing.id_insumo = ins.id_insumo
+WHERE p.id_producto = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
